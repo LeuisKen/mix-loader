@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "tf.nn.softmax_cross_entropy_with_logits_v2 loss function so big",
+        "created_at": "2018-03-21T07:39:03Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "How does the line of code ensure that total_loss are computed after finishing update_ops?",
+        "created_at": "2018-03-21T06:34:23Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Data on GPU not garbage collected",
+        "created_at": "2018-03-21T06:32:59Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "make toco build for android",
+        "created_at": "2018-03-21T06:25:50Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "\"dangling\" iterator after freeze model",
+        "created_at": "2018-03-21T05:29:25Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Upgrade gRPC commit in TensorFlow",
+        "created_at": "2018-03-21T05:12:06Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "pip install TensorFlow wheel fails due to BoringSSL",
+        "created_at": "2018-03-21T04:43:31Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "TensortRT Invalid data type: 'int32' when converting TF Object Detection graph",
+        "created_at": "2018-03-21T03:44:42Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "How to force Tensorflow app to use Android framework's NNAPI?",
+        "created_at": "2018-03-21T03:13:36Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "r1.3 freeze_graph.py issue",
+        "created_at": "2018-03-21T02:52:31Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Updated README.md",
+        "created_at": "2018-03-21T01:43:25Z"
+    }
+]

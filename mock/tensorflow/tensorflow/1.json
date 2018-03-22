@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Bazel build FAILED on Ubuntu16.04 caused by extension file to detect MSVC for Windows",
+        "created_at": "2018-03-22T08:50:13Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": " ImportError: libcublas.so.9.0: cannot",
+        "created_at": "2018-03-22T08:02:47Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "change denominator so that the normalized values to [-1, +1] range",
+        "created_at": "2018-03-22T08:02:06Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "TF 1.7.0-rc1 unable to build with TensorRT support",
+        "created_at": "2018-03-22T07:51:21Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Tensorflow in Android: You must feed a value for placeholder tensor 'Placeholder' with dtype float issue",
+        "created_at": "2018-03-22T03:06:04Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Update TF-TensorRT segmenter",
+        "created_at": "2018-03-22T02:06:04Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "spelling fix",
+        "created_at": "2018-03-21T23:53:14Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Timeline Logging Duplicates of Operations",
+        "created_at": "2018-03-21T22:59:52Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Test cases fail on Nvidia Jetson TX2 for Tensorflow v1.4",
+        "created_at": "2018-03-21T22:21:45Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "contrib.nccl.broadcast raises UnimplementedError",
+        "created_at": "2018-03-21T22:12:18Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Error with GDR",
+        "created_at": "2018-03-21T21:25:38Z"
+    }
+]

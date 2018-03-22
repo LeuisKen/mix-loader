@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Feature Request] Support slot for fully customized loading",
+        "created_at": "2018-03-09T09:10:49Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] default-time attribute only works with date range picker, not date picker",
+        "created_at": "2018-03-08T14:56:58Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "lazy rendering for popover (#9814)",
+        "created_at": "2018-03-08T07:20:05Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "Allows user to choose if select focus triggers menu",
+        "created_at": "2018-03-07T01:33:23Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "DatePicker: Add Cancel button not be changed when user haven't confir…",
+        "created_at": "2018-03-05T13:05:44Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Feature Request] Adobe XD CC Components Template",
+        "created_at": "2018-03-05T10:46:26Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] Select element can't be filtered if down key isn't pressed beforehand",
+        "created_at": "2018-03-05T10:07:58Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] el-date-picker: date format is not working when blur the input control",
+        "created_at": "2018-03-03T02:04:23Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] Lame focus outline on first and last tabs",
+        "created_at": "2018-03-02T22:53:20Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] Decimal separator format in el-input-number",
+        "created_at": "2018-03-01T13:10:27Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] Table Column fixed prop can't work on multiple level column",
+        "created_at": "2018-02-28T02:11:31Z"
+    }
+]

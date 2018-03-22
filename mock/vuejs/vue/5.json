@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat: implement template compiler options 'trimTextWhitespace' and 'collapseTextWhitespace' (#3934)",
+        "created_at": "2018-02-03T16:25:22Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "SSR Component Cache doesn't cache Strings",
+        "created_at": "2018-02-02T19:31:45Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "A short syntax for v-bind .prop modifier",
+        "created_at": "2018-01-31T21:33:05Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Remove attribute merging for functional components with no prop definition",
+        "created_at": "2018-01-29T22:31:09Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "iPad/iPhone keyboard is not shown when input gets focus (works in Vue 2.4.x)",
+        "created_at": "2018-01-27T16:29:46Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Vue.extend mutates original object",
+        "created_at": "2018-01-23T09:14:40Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Functional single file component with components option.",
+        "created_at": "2018-01-21T02:51:48Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Template renderer and CSP",
+        "created_at": "2018-01-19T02:33:01Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(ssr): add 'renderCriticalStyles' function for template",
+        "created_at": "2018-01-16T23:33:24Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "bug-fix: multiple possible types (1.0.21+) array shortcut not working",
+        "created_at": "2018-01-15T07:20:04Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "[SSR] Support inline resource for specified files for server side rendering.",
+        "created_at": "2018-01-05T13:48:05Z"
+    }
+]

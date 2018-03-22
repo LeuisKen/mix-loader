@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(#7054): vue-template-compiler support switch deindent",
+        "created_at": "2017-12-11T05:24:44Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Establish a standard way to document component and its props",
+        "created_at": "2017-12-05T12:30:41Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Add Iterator supports for v-for",
+        "created_at": "2017-12-02T16:25:19Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(compiler): output source range for compiler errors (#6338)",
+        "created_at": "2017-11-25T14:26:18Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat: add browser ESM build",
+        "created_at": "2017-11-22T19:26:11Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Allow more than 1 root element for Template",
+        "created_at": "2017-11-20T22:23:07Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(v-on): add more precise names for pointer modifiers",
+        "created_at": "2017-11-16T12:08:12Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "vue-template-compiler 支持 deindent 开关",
+        "created_at": "2017-11-14T07:34:41Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "In 2.5.1+, v-model cannot be combined with v-on=\"$listeners\"",
+        "created_at": "2017-11-10T22:06:14Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(v-model): add lazy modifier for v-model on components(close #6914)",
+        "created_at": "2017-10-27T10:28:30Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "<input> rerenders while changes affects only sibling elements",
+        "created_at": "2017-10-26T10:25:53Z"
+    }
+]

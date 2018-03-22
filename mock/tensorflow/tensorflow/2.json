@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "GPU sits idle for increasing time between consecutive training runs",
+        "created_at": "2018-03-21T21:07:21Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "SetUsrMemDataHandle should return void",
+        "created_at": "2018-03-21T20:41:39Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Allocating reusable memory in Tensorflow custom operator",
+        "created_at": "2018-03-21T17:52:36Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "TypeError: build() got an unexpected keyword argument 'num_workers'",
+        "created_at": "2018-03-21T17:15:36Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Fix the quantized table order by float value for easy reading",
+        "created_at": "2018-03-21T16:13:05Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "importing and running frozen graph from old version TF produces empty output.",
+        "created_at": "2018-03-21T16:08:33Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Failed compilation of build_all_android.sh on Ubuntu 17",
+        "created_at": "2018-03-21T14:28:39Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Fix the inconsistency in the accepted shape/data_format in layers doc",
+        "created_at": "2018-03-21T11:53:06Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Inconsistency in the accepted shape/data_format of Input Tensor to Conv2D in documentation.",
+        "created_at": "2018-03-21T10:35:08Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Does tf.slim is of out of maintenance ?",
+        "created_at": "2018-03-21T08:41:44Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/tensorflow/tensorflow",
+        "title": "Clean up image_retraining example",
+        "created_at": "2018-03-21T07:55:35Z"
+    }
+]

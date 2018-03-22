@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "SFC: Unclosed <style> tag should throw error, or just work",
+        "created_at": "2018-03-07T01:48:23Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Allow slot-scope to be set on the defining component",
+        "created_at": "2018-03-04T18:38:31Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Vue warns about missing required prop that has a default value",
+        "created_at": "2018-02-28T08:40:24Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Use better types to model prop type",
+        "created_at": "2018-02-26T12:46:12Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Styles are not updated in time",
+        "created_at": "2018-02-24T10:55:11Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Writable $isServer",
+        "created_at": "2018-02-22T07:16:22Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "extended components fall back to global component definition. (instead of local one in \"super/parent\")",
+        "created_at": "2018-02-21T11:16:31Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Template compiler ignores $/svg/defs/styles element",
+        "created_at": "2018-02-21T10:07:40Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "errorHandler not working in Promises / async",
+        "created_at": "2018-02-15T17:01:10Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "fix(sfc): avoid to deindent when pad option is specified",
+        "created_at": "2018-02-14T15:04:48Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "[Suggestion] Wrapped \"v-on\" invokers should return internal result",
+        "created_at": "2018-02-08T19:22:52Z"
+    }
+]

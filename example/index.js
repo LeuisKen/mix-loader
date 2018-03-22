@@ -4,6 +4,8 @@
  */
 
 import mixLoader from '../src';
+import {PAGE_SIZE} from '../common/config';
+import {sorter} from '../common/utils';
 
 /**
  * 获取 github 某仓库的 issue 列表
@@ -19,24 +21,17 @@ async function* getRepoIssue(location) {
             '/api/issues',
             {location, page}
         );
-        isLastPage = lastRes.length === 0;
+        isLastPage = lastRes.length < PAGE_SIZE;
         page++;
         yield lastRes;
     }
-}
-
-// 按照 issue 的更新时间进行排序
-function sorter(a, b) {
-    const valueA = (new Date(a.created_at)).getTime();
-    const valueB = (new Date(b.created_at)).getTime();
-    return valueB - valueA;
 }
 
 // 合并两个异步迭代器
 const list = mixLoader([
     getRepoIssue('ant-design/ant-design'),
     getRepoIssue('facebook/react')
-], sorter, 30);
+], sorter, PAGE_SIZE);
 
 const container = document.getElementById('container');
 const btn = document.getElementById('trigger');
@@ -49,7 +44,7 @@ btn.addEventListener('click', async function () {
     container.innerHTML += value.reduce((cur, next) =>
         cur + `<li><div>Repo: ${next.repository_url}</div>`
             + `<div>Title: ${next.title}</div>`
-            + `<div>Time: ${next.updated_at}</div>`, '');
+            + `<div>Time: ${next.created_at}</div>`, '');
 });
 
 /**
