@@ -1,31 +1,6 @@
 [
     {
         "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Turn unique key props warning more specific",
-        "created_at": "2018-02-10T13:55:07Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Turn unique key props warning more specific",
-        "created_at": "2018-02-10T13:55:07Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Prefix private API fields on the context object",
-        "created_at": "2018-02-10T13:45:29Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Prefix private API fields on the context object",
-        "created_at": "2018-02-10T13:45:29Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Regression: React 16 automatically marks first item of a mutliple select as checked",
-        "created_at": "2018-02-09T19:47:53Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
         "title": "Regression: React 16 automatically marks first item of a mutliple select as checked",
         "created_at": "2018-02-09T19:47:53Z"
     },
@@ -33,16 +8,6 @@
         "repository_url": "https://api.github.com/repos/facebook/react",
         "title": "Update shouldComponentUpdate docs with advice about closures",
         "created_at": "2018-02-08T12:38:01Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Update shouldComponentUpdate docs with advice about closures",
-        "created_at": "2018-02-08T12:38:01Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "Add support for using !important in inline style values",
-        "created_at": "2018-02-08T04:25:55Z"
     },
     {
         "repository_url": "https://api.github.com/repos/facebook/react",
@@ -53,5 +18,40 @@
         "repository_url": "https://api.github.com/repos/facebook/react",
         "title": "Remove use of Proxy for events in development",
         "created_at": "2018-02-07T08:17:56Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Prop to pass data to event handlers",
+        "created_at": "2018-02-07T02:15:48Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Add warning when hydrating output from renderToStaticMarkup() #11596",
+        "created_at": "2018-02-06T18:06:10Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Determine event target in Shadow DOM correctly",
+        "created_at": "2018-02-06T14:00:41Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Umbrella: 16.3 and 16.4 releases",
+        "created_at": "2018-02-04T22:57:38Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "React16 dev memory leak on render with event listeners",
+        "created_at": "2018-02-02T22:54:27Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Children.only conflicts with Children.count",
+        "created_at": "2018-02-01T20:34:46Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Extend input type check in selection capabilities (#12062)",
+        "created_at": "2018-02-01T20:12:40Z"
     }
 ]

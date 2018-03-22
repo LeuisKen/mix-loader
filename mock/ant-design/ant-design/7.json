@@ -18,40 +18,5 @@
         "repository_url": "https://api.github.com/repos/ant-design/ant-design",
         "title": "Long input text show not right when use textarea as <AutoComplete>'s child",
         "created_at": "2018-01-24T13:06:43Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "Add Icons",
-        "created_at": "2018-01-23T12:18:36Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "Chrome在缩放模式下，Card组件的border被title的背景色覆盖",
-        "created_at": "2018-01-23T08:54:17Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "In the cascader component, when set expandTrigger equal to 'hover', loadData function can not trigger?",
-        "created_at": "2018-01-23T08:45:55Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "TreeSelect checkable cant be used with only keyboard",
-        "created_at": "2018-01-21T18:07:32Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "treeSelect  showCheckedStrategy ",
-        "created_at": "2018-01-20T07:05:40Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "使用 Cascader 时，当层级太深，超过一屏的时候无法选择后面的",
-        "created_at": "2018-01-19T09:57:06Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/ant-design/ant-design",
-        "title": "固定表头Table，内容含有带滚动的popover，popover的滚动会引起table滚动",
-        "created_at": "2018-01-19T09:06:46Z"
     }
 ]

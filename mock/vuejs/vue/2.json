@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Evaluation of slot content's context is inconsistent with \"slot-scope\" behavior.",
+        "created_at": "2018-03-19T12:48:08Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Extending object syntax of v-on to support modifiers",
+        "created_at": "2018-03-16T18:14:29Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(weex): invoke handlers on virtual component instance",
+        "created_at": "2018-03-16T10:07:43Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(compiler): Allow style element inside svg",
+        "created_at": "2018-03-16T09:52:06Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Inconsistent behavior between functional component and normal ones",
+        "created_at": "2018-03-16T08:58:21Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "feat(server, webpack-plugin): webpack 4 support",
+        "created_at": "2018-03-16T07:14:12Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "keep-alive breaks initial transition",
+        "created_at": "2018-03-15T19:20:58Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Unable to simulate click in `$nextTick`",
+        "created_at": "2018-03-15T08:50:13Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "v-model support for web components (stenciljs)",
+        "created_at": "2018-03-14T13:12:12Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "Provide a way to explicitly fill a (scoped) slot with nothing",
+        "created_at": "2018-03-14T07:57:36Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/vuejs/vue",
+        "title": "fix(observer): invoke getters on initial observation if setter defined. Corrects #7302",
+        "created_at": "2018-03-14T04:52:24Z"
+    }
+]

@@ -1,6 +1,11 @@
 [
     {
         "repository_url": "https://api.github.com/repos/facebook/react",
+        "title": "Keep the children mounted but replace the parent",
+        "created_at": "2018-03-16T20:31:44Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/facebook/react",
         "title": "Remove reconcileChildren and use reconcileChildrenAtExpirationTime",
         "created_at": "2018-03-16T13:19:19Z"
     },
@@ -48,10 +53,5 @@
         "repository_url": "https://api.github.com/repos/facebook/react",
         "title": "Possible bug in ReactDOM.createPortal when used in a new window",
         "created_at": "2018-03-12T15:48:05Z"
-    },
-    {
-        "repository_url": "https://api.github.com/repos/facebook/react",
-        "title": "[WIP] Rollup plugin node resolve 3",
-        "created_at": "2018-03-10T14:56:01Z"
     }
 ]

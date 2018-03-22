@@ -1,0 +1,57 @@
+[
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] el-input (.input-group_append) overriding el-button type definition",
+        "created_at": "2018-01-16T14:53:59Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Select] Custom caret and clear icons - english doc updated",
+        "created_at": "2018-01-15T16:12:57Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Enhancement] submenu opened property changes is after menu collapse-transition",
+        "created_at": "2018-01-15T07:34:19Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] Run unit test issue: when I run unit test, it shows: Cannot read property 'split' of undefined",
+        "created_at": "2018-01-15T06:53:45Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] Confusing documentation for el-time-select",
+        "created_at": "2018-01-14T19:55:10Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Feature Request] add style: flex-wrap & flex-direction",
+        "created_at": "2018-01-12T07:04:31Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Feature Request] Programmatically sort table with custom sort-by",
+        "created_at": "2018-01-11T07:45:14Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] custom MessageBox problems",
+        "created_at": "2018-01-10T08:59:37Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Feature Request] Datepicker userInput validation",
+        "created_at": "2018-01-05T09:11:34Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Feature Request] The data required for the multilevel header of the table are hierarchical data, which can not satisfy the free custom header",
+        "created_at": "2018-01-03T07:28:39Z"
+    },
+    {
+        "repository_url": "https://api.github.com/repos/ElemeFE/element",
+        "title": "[Bug Report] How to disable the “status-icon” with “Select” in “Mixed input”？",
+        "created_at": "2018-01-03T03:51:00Z"
+    }
+]
