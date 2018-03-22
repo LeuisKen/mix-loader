@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "dev": "node ./build/dev-server.js",
-    "build": "parcel build ./src/index.js -d ./lib",
+    "build": "parcel build ./src/index.js -d ./lib && npm run build:node",
     "build:node": "babel ./src/index.js -o ./lib/index.node.js",
     "mock:resize": "node ./build/mock-helper.js",
     "test": "mocha",
