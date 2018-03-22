@@ -8,16 +8,16 @@ import mixLoader from '../src';
 /**
  * 获取 github 某仓库的 issue 列表
  *
- * @param {string} path 仓库路径，如：facebook/react
+ * @param {string} location 仓库路径，如：facebook/react
  */
-async function* getRepoIssue(path) {
+async function* getRepoIssue(location) {
     let page = 1;
     let isLastPage = false;
 
     while (!isLastPage) {
         let lastRes = await getData(
-            `https://api.github.com/repos/${path}/issues`,
-            {page}
+            '/api/issues',
+            {location, page}
         );
         isLastPage = lastRes.length === 0;
         page++;
@@ -29,7 +29,7 @@ async function* getRepoIssue(path) {
 function sorter(a, b) {
     const valueA = (new Date(a.updated_at)).getTime();
     const valueB = (new Date(b.updated_at)).getTime();
-    return valueA - valueB;
+    return valueB - valueA;
 }
 
 // 合并两个异步迭代器
