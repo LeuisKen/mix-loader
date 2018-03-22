@@ -23,7 +23,12 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
     // 还有迭代器可以请求时
     while (activeIterators.length > 0) {
         // 所有已返回数据余量不足pickNumber的迭代器请求一次
-        const reqs = activeIterators.map((iter, idx) => unpickCount[idx] < pickNumber ? iter.next() : { value: [], done: false });
+        const reqs = activeIterators.map((iter, idx) => (
+            unpickCount[idx] < pickNumber ? iter.next() : {
+                value: [],
+                done: false
+            }
+        ));
         let res = await Promise.all(reqs);
 
         for (let i = 0; i < res.length; i++) {
@@ -32,10 +37,10 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
             // 如果该迭代器未迭代完，将请求到的数组，合并到结果中
             if (!done) {
                 dataSet = dataSet.concat(value.map(val => ({val, i})));
-                unpickCount[i] += value.length; 
+                unpickCount[i] += value.length;
             }
             // 否则，当数据余量为0时, 将其迭代器和余量计数从数组中移除
-            else if (unpickCount[i] === 0){
+            else if (unpickCount[i] === 0) {
                 activeIterators.splice(i, 1);
                 unpickCount.splice(i, 1);
             }
