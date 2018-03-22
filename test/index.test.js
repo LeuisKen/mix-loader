@@ -15,6 +15,9 @@ const PAGE_SIZE = 11;
 
 const locationList = [
     'ant-design/ant-design',
+    'vuejs/vue',
+    'tensorflow/tensorflow',
+    'ElemeFE/element',
     'facebook/react'
 ];
 
@@ -24,6 +27,7 @@ let combinedDataList = [];
 // 将各 mock 数据整合到数组中
 for (let i = 0; i < locationList.length; i++) {
     const fileList = fs.readdirSync(`${MOCK_PATH}/${locationList[i]}`)
+        .filter(file => readFileExt(file) === 'json')
         .map(file => require(`${MOCK_PATH}/${locationList[i]}/${file}`));
     for (let j = 0; j < fileList.length; j++) {
         combinedDataList = combinedDataList.concat(fileList[j]);
@@ -51,10 +55,8 @@ function* getRepoIssue(location) {
 }
 
 // 合并两个迭代器
-const list = mixLoader([
-    getRepoIssue('ant-design/ant-design'),
-    getRepoIssue('facebook/react')
-], sorter, PAGE_SIZE);
+const list = mixLoader(locationList.map(location =>
+    getRepoIssue(location)), sorter, PAGE_SIZE);
 
 describe('迭代器返回结果测试', () => {
     it('各次迭代结果与预期吻合', async () => {
@@ -106,4 +108,18 @@ function mapToDate(value) {
             (new Date(el.created_at).getTime())
         )
     );
+}
+
+/**
+ * 读取一个文件的文件后缀
+ *
+ * @param {string} filename 输入的文件名
+ * @return {string} 文件后缀
+ */
+function readFileExt(filename) {
+    const list = filename.trim().split('.');
+    if (list[0] !== '' && list.length > 1) {
+        return list.pop();
+    }
+    return '';
 }
