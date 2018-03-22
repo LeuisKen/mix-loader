@@ -1,5 +1,11 @@
 # mix-loader
 
+## how to use
+
+```sh
+npm i mix-loader --save
+```
+
 ## how to dev
 
  - dev
