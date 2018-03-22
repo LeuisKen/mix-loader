@@ -12,6 +12,13 @@ const bundler = new Bundler(file, options);
 
 const app = express();
 
+app.use('/api', function (req, res) {
+    const {location, page} = req.query;
+    const mockEntry = path.join(__dirname, '../mock', `${location}/${page}.json`);
+    const mockData = require(mockEntry);
+    res.json(mockData);
+});
+
 app.use(bundler.middleware());
 
 app.listen(8080);
