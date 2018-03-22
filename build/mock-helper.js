@@ -13,11 +13,15 @@ const PAGE_SIZE = 11;
 
 const locationList = [
     'ant-design/ant-design',
+    'vuejs/vue',
+    'tensorflow/tensorflow',
+    'ElemeFE/element',
     'facebook/react'
 ];
 
 for (let i = 0; i < locationList.length; i++) {
     const repoData = fs.readdirSync(`${MOCK_PATH}/${locationList[i]}`)
+        .filter(file => readFileExt(file) === 'json')
         .map(file => require(`${MOCK_PATH}/${locationList[i]}/${file}`))
         .reduce((cur, next) => cur = cur.concat(next), [])
         // 过滤掉没用的数据，仅保留必须数据，不然控制台输出太多了
@@ -43,4 +47,18 @@ function sorter(a, b) {
     const valueA = (new Date(a.created_at)).getTime();
     const valueB = (new Date(b.created_at)).getTime();
     return valueB - valueA;
+}
+
+/**
+ * 读取一个文件的文件后缀
+ *
+ * @param {string} filename 输入的文件名
+ * @return {string} 文件后缀
+ */
+function readFileExt(filename) {
+    const list = filename.trim().split('.');
+    if (list[0] !== '' && list.length > 1) {
+        return list.pop();
+    }
+    return '';
 }
