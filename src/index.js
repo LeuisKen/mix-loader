@@ -15,40 +15,50 @@
 export default async function* mixLoader(iterators, sortFn, pickNumber) {
     // 用于保存结果的数组
     let dataSet = [];
-    // 需要请求的迭代器列表
-    let activeIterators = iterators.slice();
+    // 数据源列表
+    let dataSources = iterators.map(iterator => {
+        return {
+            // 迭代器返回还未消费的数据数量
+            poolSize: 0,
+            // 请求数据的迭代器
+            iterator
+        }
+    });
 
-    // 还有迭代器可以请求时
-    while (activeIterators.length > 0) {
-        // 所有迭代器请求一次
-        const reqs = activeIterators.map(iter => iter.next());
+    // 还有数据可以返回
+    while (dataSources.length > 0) {
+        // 所有数据余量不足pickNumber的数据源
+        const drySrc = dataSources.filter(src => src.poolSize < pickNumber);
+        // 这些数据源需使用迭代器获取一次数据
+        const reqs = drySrc.map(src => src.iterator.next());
         let res = await Promise.all(reqs);
 
         for (let i = 0; i < res.length; i++) {
             let {value, done} = res[i];
-            // console.log(value, done);
-            // 如果该迭代器迭代完了，就从迭代器列表中移除
-            if (done) {
-                activeIterators.splice(i, 1);
+            // 如果该迭代器未迭代完，将请求到的数组，合并到结果中
+            if (!done) {
+                dataSet = dataSet.concat(value.map(value => {
+                    return {
+                        value,
+                        src: drySrc[i]
+                    };
+                }));
+                drySrc[i].poolSize += value.length; 
             }
-            // 否则，将请求到的数组，合并到结果中
+            // 否则，将数据源从列表中移除
             else {
-                dataSet = dataSet.concat(value);
+                dataSources.splice(dataSources.indexOf(drySrc[i]), 1);
             }
         }
 
         // 对结果排序
-        dataSet.sort(sortFn);
+        dataSet.sort((a, b) => sortFn(a.value, b.value));
 
         // 从结果中取出 pickNumber 个数据
-        // console.log(dataSet);
-        yield dataSet.splice(0, pickNumber);
-    }
-
-    // 所有异步数据都请求完毕后，结果数组有剩余，则不发请求，直接从结果数组中取数据即可
-    while (dataSet.length > 0) {
-        // console.log(dataSet);
-        yield dataSet.splice(0, pickNumber);
+        yield dataSet.splice(0, pickNumber).map(data => {
+            --data.src.poolSize;
+            return data.value;
+        });
     }
 
 }
