@@ -27,8 +27,8 @@ async function* getRepoIssue(location) {
 
 // 按照 issue 的更新时间进行排序
 function sorter(a, b) {
-    const valueA = (new Date(a.updated_at)).getTime();
-    const valueB = (new Date(b.updated_at)).getTime();
+    const valueA = (new Date(a.created_at)).getTime();
+    const valueB = (new Date(b.created_at)).getTime();
     return valueB - valueA;
 }
 
