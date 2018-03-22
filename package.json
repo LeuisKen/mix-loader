@@ -6,6 +6,12 @@
   "files": [
     "src"
   ],
+  "contributors": [
+    {
+      "name": "leuisken",
+      "email": "leuisken@foxmail.com"
+    }
+  ],
   "scripts": {
     "dev": "node ./build/dev-server.js",
     "build": "parcel build ./src/index.js -d ./lib && npm run build:node",
