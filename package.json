@@ -6,6 +6,7 @@
   "scripts": {
     "dev": "node ./build/dev-server.js",
     "build": "parcel build ./src/index.js -d ./lib",
+    "build:node": "babel ./src/index.js -o ./lib/index.node.js",
     "test": "mocha",
     "test:cov": "istanbul cover _mocha"
   },
@@ -21,6 +22,8 @@
   },
   "homepage": "https://github.com/LeuisKen/mix-loader#readme",
   "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-plugin-transform-es2015-modules-commonjs": "^6.26.0",
     "babel-plugin-transform-runtime": "^6.23.0",
     "babel-preset-stage-3": "^6.24.1",
     "express": "^4.16.3",

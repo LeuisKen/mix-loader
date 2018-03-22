@@ -1,4 +1,7 @@
 {
     "presets": ["stage-3"],
-    "plugins": ["transform-runtime"]
+    "plugins": [
+        "transform-es2015-modules-commonjs",
+        "transform-runtime"
+    ]
 }
