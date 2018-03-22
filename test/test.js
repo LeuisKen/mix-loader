@@ -29,7 +29,7 @@ async function* getRepoIssue(path) {
 function sorter(a, b) {
     const valueA = (new Date(a.updated_at)).getTime();
     const valueB = (new Date(b.updated_at)).getTime();
-    return valueA - valueB;
+    return valueB - valueA;
 }
 
 // 合并两个异步迭代器
