@@ -7,22 +7,13 @@
 
 const fs = require('fs');
 const path = require('path');
+const {MOCK_PATH, PAGE_SIZE, REPO_LIST} = require('../common/config');
+const {readFileExt, sorter} = require('../common/utils');
 
-const MOCK_PATH = path.join(__dirname, '../mock');
-const PAGE_SIZE = 11;
-
-const locationList = [
-    'ant-design/ant-design',
-    'vuejs/vue',
-    'tensorflow/tensorflow',
-    'ElemeFE/element',
-    'facebook/react'
-];
-
-for (let i = 0; i < locationList.length; i++) {
-    const repoData = fs.readdirSync(`${MOCK_PATH}/${locationList[i]}`)
+for (let i = 0; i < REPO_LIST.length; i++) {
+    const repoData = fs.readdirSync(`${MOCK_PATH}/${REPO_LIST[i]}`)
         .filter(file => readFileExt(file) === 'json')
-        .map(file => require(`${MOCK_PATH}/${locationList[i]}/${file}`))
+        .map(file => require(`${MOCK_PATH}/${REPO_LIST[i]}/${file}`))
         .reduce((cur, next) => cur = cur.concat(next), [])
         // 过滤掉没用的数据，仅保留必须数据，不然控制台输出太多了
         .map(({
@@ -38,27 +29,6 @@ for (let i = 0; i < locationList.length; i++) {
 
     for (let j = 1; repoData.length > 0; j++) {
         const text = JSON.stringify(repoData.splice(0, PAGE_SIZE), null, 4);
-        fs.writeFileSync(`${MOCK_PATH}/${locationList[i]}/${j}.json`, text, 'utf8');
+        fs.writeFileSync(`${MOCK_PATH}/${REPO_LIST[i]}/${j}.json`, text, 'utf8');
     }
-}
-
-// 按照 issue 的更新时间进行排序
-function sorter(a, b) {
-    const valueA = (new Date(a.created_at)).getTime();
-    const valueB = (new Date(b.created_at)).getTime();
-    return valueB - valueA;
-}
-
-/**
- * 读取一个文件的文件后缀
- *
- * @param {string} filename 输入的文件名
- * @return {string} 文件后缀
- */
-function readFileExt(filename) {
-    const list = filename.trim().split('.');
-    if (list[0] !== '' && list.length > 1) {
-        return list.pop();
-    }
-    return '';
 }

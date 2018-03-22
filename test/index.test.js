@@ -9,26 +9,17 @@ const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
 const mixLoader = require('../lib/index.node').default;
-
-const MOCK_PATH = path.join(__dirname, '../mock');
-const PAGE_SIZE = 11;
-
-const locationList = [
-    'ant-design/ant-design',
-    'vuejs/vue',
-    'tensorflow/tensorflow',
-    'ElemeFE/element',
-    'facebook/react'
-];
+const {MOCK_PATH, PAGE_SIZE, REPO_LIST} = require('../common/config');
+const {sorter, readFileExt} = require('../common/utils');
 
 // 创建一个所有整合所有数据的数组
 let combinedDataList = [];
 
 // 将各 mock 数据整合到数组中
-for (let i = 0; i < locationList.length; i++) {
-    const fileList = fs.readdirSync(`${MOCK_PATH}/${locationList[i]}`)
+for (let i = 0; i < REPO_LIST.length; i++) {
+    const fileList = fs.readdirSync(`${MOCK_PATH}/${REPO_LIST[i]}`)
         .filter(file => readFileExt(file) === 'json')
-        .map(file => require(`${MOCK_PATH}/${locationList[i]}/${file}`));
+        .map(file => require(`${MOCK_PATH}/${REPO_LIST[i]}/${file}`));
     for (let j = 0; j < fileList.length; j++) {
         combinedDataList = combinedDataList.concat(fileList[j]);
     }
@@ -55,7 +46,7 @@ function* getRepoIssue(location) {
 }
 
 // 合并两个迭代器
-const list = mixLoader(locationList.map(location =>
+const list = mixLoader(REPO_LIST.map(location =>
     getRepoIssue(location)), sorter, PAGE_SIZE);
 
 describe('迭代器返回结果测试', () => {
@@ -76,13 +67,6 @@ describe('迭代器返回结果测试', () => {
     });
 
 });
-
-// 按照 issue 的更新时间进行排序
-function sorter(a, b) {
-    const valueA = (new Date(a.created_at)).getTime();
-    const valueB = (new Date(b.created_at)).getTime();
-    return valueB - valueA;
-}
 
 /**
  * 请求数据
@@ -108,18 +92,4 @@ function mapToDate(value) {
             (new Date(el.created_at).getTime())
         )
     );
-}
-
-/**
- * 读取一个文件的文件后缀
- *
- * @param {string} filename 输入的文件名
- * @return {string} 文件后缀
- */
-function readFileExt(filename) {
-    const list = filename.trim().split('.');
-    if (list[0] !== '' && list.length > 1) {
-        return list.pop();
-    }
-    return '';
 }

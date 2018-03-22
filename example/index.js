@@ -4,8 +4,8 @@
  */
 
 import mixLoader from '../src';
-
-const PAGE_SIZE = 11;
+import {PAGE_SIZE} from '../common/config';
+import {sorter} from '../common/utils';
 
 /**
  * 获取 github 某仓库的 issue 列表
@@ -25,13 +25,6 @@ async function* getRepoIssue(location) {
         page++;
         yield lastRes;
     }
-}
-
-// 按照 issue 的更新时间进行排序
-function sorter(a, b) {
-    const valueA = (new Date(a.created_at)).getTime();
-    const valueB = (new Date(b.created_at)).getTime();
-    return valueB - valueA;
 }
 
 // 合并两个异步迭代器
