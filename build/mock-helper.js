@@ -30,10 +30,17 @@ for (let i = 0; i < locationList.length; i++) {
             title,
             created_at
         }))
-        .sort((a, b) => b.created_at - a.created_at);
+        .sort(sorter);
 
     for (let j = 1; repoData.length > 0; j++) {
         const text = JSON.stringify(repoData.splice(0, PAGE_SIZE), null, 4);
         fs.writeFileSync(`${MOCK_PATH}/${locationList[i]}/${j}.json`, text, 'utf8');
     }
+}
+
+// 按照 issue 的更新时间进行排序
+function sorter(a, b) {
+    const valueA = (new Date(a.created_at)).getTime();
+    const valueB = (new Date(b.created_at)).getTime();
+    return valueB - valueA;
 }
