@@ -5,6 +5,8 @@
 
 import mixLoader from '../src';
 
+const PAGE_SIZE = 11;
+
 /**
  * 获取 github 某仓库的 issue 列表
  *
@@ -19,7 +21,7 @@ async function* getRepoIssue(location) {
             '/api/issues',
             {location, page}
         );
-        isLastPage = lastRes.length === 0;
+        isLastPage = lastRes.length < PAGE_SIZE;
         page++;
         yield lastRes;
     }
@@ -36,7 +38,7 @@ function sorter(a, b) {
 const list = mixLoader([
     getRepoIssue('ant-design/ant-design'),
     getRepoIssue('facebook/react')
-], sorter, 30);
+], sorter, PAGE_SIZE);
 
 const container = document.getElementById('container');
 const btn = document.getElementById('trigger');
@@ -49,7 +51,7 @@ btn.addEventListener('click', async function () {
     container.innerHTML += value.reduce((cur, next) =>
         cur + `<li><div>Repo: ${next.repository_url}</div>`
             + `<div>Title: ${next.title}</div>`
-            + `<div>Time: ${next.updated_at}</div>`, '');
+            + `<div>Time: ${next.created_at}</div>`, '');
 });
 
 /**

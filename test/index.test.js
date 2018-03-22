@@ -11,7 +11,7 @@ const path = require('path');
 const mixLoader = require('../lib/index.node').default;
 
 const MOCK_PATH = path.join(__dirname, '../mock');
-const PAGE_SIZE = 30;
+const PAGE_SIZE = 11;
 
 const locationList = [
     'ant-design/ant-design',
