@@ -2,6 +2,9 @@
  * @file 开发使用的 express 服务器
  * @author LeuisKen <leuisken@foxmail.com>
  */
+
+'use strict';
+
 const path = require('path');
 const express = require('express');
 const Bundler = require('parcel-bundler');
