@@ -22,7 +22,7 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
             poolSize: 0,
             // 请求数据的迭代器
             iterator
-        }
+        };
     });
 
     // 还有数据可以返回
@@ -43,7 +43,7 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
                         src: drySrc[i]
                     };
                 }));
-                drySrc[i].poolSize += value.length; 
+                drySrc[i].poolSize += value.length;
             }
             // 否则，将数据源从列表中移除
             else {
