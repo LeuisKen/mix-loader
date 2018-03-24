@@ -4,7 +4,7 @@
  */
 
 import mixLoader from '../src';
-import {PAGE_SIZE} from '../common/config';
+import {PAGE_SIZE, REPO_LIST} from '../common/config';
 import {sorter} from '../common/utils';
 
 /**
@@ -27,11 +27,9 @@ async function* getRepoIssue(location) {
     }
 }
 
-// 合并两个异步迭代器
-const list = mixLoader([
-    getRepoIssue('ant-design/ant-design'),
-    getRepoIssue('facebook/react')
-], sorter, PAGE_SIZE);
+// 合并两个迭代器
+const list = mixLoader(REPO_LIST.map(location =>
+    getRepoIssue(location)), sorter, PAGE_SIZE);
 
 const container = document.getElementById('container');
 const btn = document.getElementById('trigger');
