@@ -60,6 +60,14 @@ class PriorityQueue {
 		}
 		return queue.pop();
 	}
+	// 此操作用处不大
+	// popAll () {
+	// 	const ret = [];
+	// 	while(this.length) {
+	// 		ret.push(this.pop());
+	// 	}
+	// 	return ret;
+	// }
 	// 由于操作会影响内部存储, 移除迭代器特性
 	// *[Symbol.iterator] () {
 	// 	while(this.length) yield this.pop();
