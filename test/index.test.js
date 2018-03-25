@@ -8,7 +8,7 @@
 const assert = require('assert');
 const fs = require('fs');
 const path = require('path');
-const mixLoader = require('../lib/index.node').default;
+const mixLoader = require('../libnode/index').default;
 const {MOCK_PATH, PAGE_SIZE, REPO_LIST} = require('../common/config');
 const {sorter, readFileExt} = require('../common/utils');
 

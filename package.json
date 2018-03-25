@@ -15,7 +15,7 @@
   "scripts": {
     "dev": "node ./build/dev-server.js",
     "build": "parcel build ./src/index.js -d ./lib && npm run build:node",
-    "build:node": "babel ./src/index.js -o ./lib/index.node.js",
+    "build:node": "babel ./src -d ./libnode",
     "mock:resize": "node ./build/mock-helper.js",
     "test": "mocha",
     "test:cov": "istanbul cover _mocha"
