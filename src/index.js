@@ -12,53 +12,82 @@
  * @param {Function} sortFn 对请求结果进行排序的函数
  * @param {number} pickNumber 迭代器每次返回的元素数量
  */
+
+import PriorityQueue from './PriorityQueue';
+
 export default async function* mixLoader(iterators, sortFn, pickNumber) {
-    // 用于保存结果的数组
-    let dataSet = [];
+    // 结果集, 用于保存要返回的数据
+    const dataSet = [];
+    // 用于保存待消费数据的优先队列
+    const dataQueue = new PriorityQueue((a, b) => sortFn(a.value, b.value));
     // 数据源列表
-    let dataSources = iterators.map(iterator => {
+    const dataSources = iterators.map(iterator => {
         return {
-            // 迭代器返回还未消费的数据数量
+            // 还未消费的数据数量(在优先队列中, 但不在结果集中)
             poolSize: 0,
+            // 还未返回的数据请求
+            req: null,
             // 请求数据的迭代器
-            iterator
+            iterator,
         };
     });
 
     // 还有数据可以返回
-    while (dataSources.length > 0) {
-        // 所有数据余量不足pickNumber的数据源
-        const drySrc = dataSources.filter(src => src.poolSize < pickNumber);
-        // 这些数据源需使用迭代器获取一次数据
-        const reqs = drySrc.map(src => src.iterator.next());
-        let res = await Promise.all(reqs);
+    while (dataSources.length > 0 || dataQueue.length) {
+        // 所有待消费数据余量为0的数据源
+        const drySrc = dataSources.filter(src => !src.poolSize);
+        // 这些数据源需使用迭代器获取一次数据, 并需要等待返回
+        const reqs = drySrc.map(src => src.req || src.iterator.next());
 
+        // 所有待消费数据余量不足pickNumber的数据源
+        const dryingSrc = dataSources.filter(src => src.poolSize > 0 && src.poolSize < pickNumber && !src.req);
+        // 这些数据源需使用迭代器预先获取一次数据, 但不需要等待返回
+        dryingSrc.forEach(src => src.req = src.iterator.next());
+
+        // 等待所有余量为0的数据源返回, 保证每个数据源都有数据在优先队列中
+        const res = await Promise.all(reqs);
         for (let i = 0; i < res.length; i++) {
-            let {value, done} = res[i];
-            // 如果该迭代器未迭代完，将请求到的数组，合并到结果中
+            // 处理迭代器返回的数据
+            drySrc[i].req = null;
+            const {value, done} = res[i];
+            // 如果该迭代器未迭代完, 将数据放入优先队列中
             if (!done) {
-                dataSet = dataSet.concat(value.map(value => {
-                    return {
-                        value,
-                        src: drySrc[i]
-                    };
-                }));
+                dataQueue.push(...value.map(value => ({ value, src: drySrc[i] })));
                 drySrc[i].poolSize += value.length;
             }
-            // 否则，将数据源从列表中移除
+            // 否则, 将数据源从列表中移除
             else {
                 dataSources.splice(dataSources.indexOf(drySrc[i]), 1);
             }
         }
 
-        // 对结果排序
-        dataSet.sort((a, b) => sortFn(a.value, b.value));
+        // 使用优先队列将数据按序放入结果集
+        while(dataSet.length < pickNumber && dataQueue.length) {
+            // 将最优先的一条数据从队列移除, 并放入结果集中
+            const item = dataQueue.pop();
+            dataSet.push(item.value);
+            // 对应数据源未消费数据减少1
+            --item.src.poolSize;
+            // 如果此时数据源待消费数据量为0, 且结果集数据不足, 需要等待此数据源迭代器返回新数据
+            if(!item.src.poolSize && dataSet.length < pickNumber) {
+                // 由于目前的与获取策略, 只会走item.src.req, 后者用于兼容不同的预获取策略
+                item.src.req = item.src.req || item.src.iterator.next();
+                const {value, done} = await item.src.req;
+                item.src.req = null;
+                // 如果该迭代器未迭代完, 将数据放入优先队列中
+                if (!done) {
+                    dataQueue.push(...value.map(value => ({ value, src: item.src })));
+                    item.src.poolSize += value.length;
+                }
+                // 否则, 将数据源从列表中移除
+                else {
+                    dataSources.splice(dataSources.indexOf(item.src), 1);
+                }
+            }
+        }
 
         // 从结果中取出 pickNumber 个数据
-        yield dataSet.splice(0, pickNumber).map(data => {
-            --data.src.poolSize;
-            return data.value;
-        });
+        yield dataSet.splice(0, pickNumber);
     }
 
 }
