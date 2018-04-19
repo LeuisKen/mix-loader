@@ -1,7 +1,7 @@
 /**
  * @file MixLoader
  * @author LeuisKen <leuisken@foxmail.com>
- *         STLighter
+ *         STLighter <123939775@qq.com>
  */
 
 import groupBy from 'lodash.groupby';

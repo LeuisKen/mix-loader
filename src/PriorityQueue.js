@@ -1,6 +1,6 @@
 /**
  * @file 优先队列实现
- * @author STLighter
+ * @author STLighter <123939775@qq.com>
  */
 
 export default class PriorityQueue {
