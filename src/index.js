@@ -4,6 +4,9 @@
  *         STLighter
  */
 
+import groupBy from 'lodash.groupby';
+import PriorityQueue from './PriorityQueue';
+
 /**
  * 合并多个异步迭代器，返回一个新的异步迭代器
  * 该迭代器每次返回 pickNumber 个数据
@@ -13,10 +16,6 @@
  * @param {Function} sortFn 对请求结果进行排序的函数
  * @param {number} pickNumber 迭代器每次返回的元素数量
  */
-
-import groupBy from 'lodash.groupby';
-import PriorityQueue from './PriorityQueue';
-
 export default async function* mixLoader(iterators, sortFn, pickNumber) {
     // 结果集, 用于保存要返回的数据
     const dataSet = [];
