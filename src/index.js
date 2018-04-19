@@ -13,6 +13,7 @@
  * @param {number} pickNumber 迭代器每次返回的元素数量
  */
 
+import groupBy from 'lodash.groupby';
 import PriorityQueue from './PriorityQueue';
 
 export default async function* mixLoader(iterators, sortFn, pickNumber) {
@@ -32,19 +33,19 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
 
     // 还有数据可以返回
     while (dataSources.length > 0 || dataQueue.length) {
-        // 所有待消费数据余量为0的数据源
-        const drySrc = dataSources.filter(src => !src.poolSize);
-        // 这些数据源需使用迭代器获取一次数据, 并需要等待返回
+        // 数据源分组
+        const {drySrc, dryingSrc} = groupBy(dataSources, sourceSeparator);
+        // 对于余量为 0 的数据源
+        // 策略为获取一次数据, 并需要等待返回
         const reqs = drySrc.map(src => src.req || src.iterator.next());
-
-        // 所有待消费数据余量不足pickNumber的数据源
-        const dryingSrc = dataSources.filter(src => src.poolSize > 0 && src.poolSize < pickNumber && !src.req);
-        // 这些数据源需使用迭代器预先获取一次数据, 但不需要等待返回
+        // 对于余量大于 0 小于 pickNumber 的数据源
+        // 策略为预先获取一次数据, 但不需要等待返回
         dryingSrc.forEach(src => src.req = src.iterator.next());
 
-        // 等待所有余量为0的数据源返回, 保证每个数据源都有数据在优先队列中
+        // 等待所有余量为 0 的数据源返回，保证每个数据源都有数据在优先队列中
         const res = await Promise.all(reqs);
         for (let i = 0; i < res.length; i++) {
+            // 根据返回结果更新数据队列与数据源列表
             updateData(drySrc[i], res[i]);
         }
 
@@ -69,10 +70,28 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
     }
 
     /**
+     * 根据待消费数据余量，对数据源进行分组
+     *
+     * @param {Object} source 数据源
+     * @return {string} 分组的 key 名
+     */
+    function sourceSeparator(source) {
+        // 所有待消费数据余量为0的数据源
+        if (source.poolSize === 0) {
+            return 'drySrc';
+        }
+        // 所有待消费数据余量不足pickNumber的数据源
+        else if (source.poolSize < pickNumber && !source.req) {
+            return 'dryingSrc';
+        }
+        return 'other';
+    }
+
+    /**
      * 根据迭代器的返回数据，更新数据队列与数据源列表
      *
-     * @param {*} source 迭代器对应的数据源
-     * @param {*} result 迭代器的返回值
+     * @param {Object} source 迭代器对应的数据源
+     * @param {Object} result 迭代器的返回值
      */
     function updateData(source, result) {
         const {value, done} = result;
