@@ -46,6 +46,8 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
         const res = await Promise.all(reqs);
         for (let i = 0; i < res.length; i++) {
             // 根据返回结果更新数据队列与数据源列表
+            // 如果该迭代器未迭代完, 将数据放入优先队列中
+            // 否则, 将数据源从列表中移除
             updateData(drySrc[i], res[i]);
         }
 
@@ -54,11 +56,11 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
             // 将最优先的一条数据从队列移除, 并放入结果集中
             const item = dataQueue.pop();
             dataSet.push(item.value);
-            // 对应数据源未消费数据减少1
+            // 对应数据源未消费数据减少 1
             --item.src.poolSize;
-            // 如果此时数据源待消费数据量为0, 且结果集数据不足, 需要等待此数据源迭代器返回新数据
+            // 如果此时数据源待消费数据量为 0 , 且结果集数据不足, 需要等待此数据源迭代器返回新数据
             if (!item.src.poolSize && dataSet.length < pickNumber) {
-                // 由于目前的与获取策略, 只会走item.src.req, 后者用于兼容不同的预获取策略
+                // 由于目前的预获取策略, 只会走 item.src.req , 后者用于兼容不同的预获取策略
                 item.src.req = item.src.req || item.src.iterator.next();
                 const result = await item.src.req;
                 updateData(item.src, result);
@@ -76,11 +78,11 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
      * @return {string} 分组的 key 名
      */
     function sourceSeparator(source) {
-        // 所有待消费数据余量为0的数据源
+        // 所有待消费数据余量为 0 的数据源
         if (source.poolSize === 0) {
             return 'drySrc';
         }
-        // 所有待消费数据余量不足pickNumber的数据源
+        // 所有待消费数据余量不足 pickNumber 的数据源
         else if (source.poolSize < pickNumber && !source.req) {
             return 'dryingSrc';
         }
