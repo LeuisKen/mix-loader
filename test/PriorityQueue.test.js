@@ -5,7 +5,7 @@ const PriorityQueue = require('../libnode/PriorityQueue').default;
 
 describe('优先队列测试', () => {
     it('队列长度', () => {
-        const pq = new PriorityQueue();
+        const pq = new PriorityQueue((a, b) => a - b);
         assert.strictEqual(pq.length, 0);
         pq.push(1);
         assert.strictEqual(pq.length, 1);
@@ -15,16 +15,6 @@ describe('优先队列测试', () => {
         assert.strictEqual(pq.length, 1);
         pq.pop();
         assert.strictEqual(pq.length, 0);
-    });
-    it('默认比较函数行为', () => {
-        const pq = new PriorityQueue();
-        const test = [1, 2, 10, 20];
-        const arr = [];
-        pq.push(...test);
-        while(pq.length) {
-            arr.push(pq.pop());
-        }
-        assert.strictEqual(JSON.stringify(arr), JSON.stringify([1, 10, 2, 20]));
     });
     it('传入比较函数', () => {
         const pq = new PriorityQueue((a, b) => a - b);
