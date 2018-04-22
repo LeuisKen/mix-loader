@@ -34,7 +34,7 @@ export default async function* mixLoader(iterators, sortFn, pickNumber) {
     // 还有数据可以返回
     while (dataSources.length > 0 || dataQueue.length) {
         // 数据源分组
-        const {drySrc, dryingSrc} = groupBy(dataSources, sourceSeparator);
+        const {drySrc = [], dryingSrc = []} = groupBy(dataSources, sourceSeparator);
         // 对于余量为 0 的数据源
         // 策略为获取一次数据, 并需要等待返回
         const reqs = drySrc.map(src => src.req || src.iterator.next());
