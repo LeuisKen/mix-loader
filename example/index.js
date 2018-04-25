@@ -39,8 +39,7 @@ class App extends Component {
     static template = `
         <div>
             <scroller
-                list="{=list=}"
-                on-load="getNextPage"
+                pool="{{pool}}"
                 >
                 <li s-for="item in list">
                     <div>Repo: {{item.repository_url}}</div>
@@ -55,7 +54,7 @@ class App extends Component {
     };
     initData() {
         return {
-            list: []
+            pool: iterator
         }
     }
     async getNextPage() {

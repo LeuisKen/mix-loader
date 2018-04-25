@@ -11,23 +11,39 @@ export default class Scroller extends Component {
                 <slot var-list="list"></slot>
             </ul>
             <div s-if="done">以上是全部内容哦~</div>
-            <div s-elif="loading">正在加载...</div>
+            <div s-else>正在加载...</div>
         <div>
     `;
     initData() {
         return {
-            loading: true,
-            done: false
-        }
+            loading: false,
+            done: false,
+            list: []
+        };
     }
     attached() {
-        this.fire('load');
+        this.loadPoolData();
     }
     handleListLoad() {
         const clientHeight = this.el.querySelector('ul').clientHeight;
 
         if (this.el.scrollTop + this.el.clientHeight > clientHeight) {
-            this.fire('load');
+            const loading = this.data.get('loading');
+            if (!loading) {
+                this.loadPoolData();
+            }
         }
+    }
+    async loadPoolData() {
+        const pool = this.data.get('pool');
+        this.data.set('loading', true);
+        const {value, done} = await pool.next();
+        this.data.set('loading', false);
+        if (done) {
+            this.data.set('done', true);
+            return;
+        }
+        const list = this.data.get('list');
+        this.data.splice('list', [list.length, 0, ...value]);
     }
 }
