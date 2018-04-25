@@ -3,6 +3,8 @@
  * @author LeuisKen <leuisken@foxmail.com>
  */
 
+import {Component} from 'san';
+import Scroller from './Scroller';
 import mixLoader from '../src';
 import {PAGE_SIZE, REPO_LIST} from '../common/config';
 import {sorter} from '../common/utils';
@@ -28,22 +30,47 @@ async function* getRepoIssue(location) {
 }
 
 // 合并两个迭代器
-const list = mixLoader(REPO_LIST.map(location =>
+const iterator = mixLoader(REPO_LIST.map(location =>
     getRepoIssue(location)), sorter, PAGE_SIZE);
 
 const container = document.getElementById('container');
-const btn = document.getElementById('trigger');
 
-btn.addEventListener('click', async function () {
-    const {value, done} = await list.next();
-    if (done) {
-        return;
+class App extends Component {
+    static template = `
+        <div>
+            <scroller
+                list="{=list=}"
+                on-load="getNextPage"
+                >
+                <li s-for="item in list">
+                    <div>Repo: {{item.repository_url}}</div>
+                    <div>Title: {{item.title}}</div>
+                    <div>Time: {{item.created_at}}</div>
+                </li>
+            </scroller>
+        </div>
+    `;
+    static components = {
+        scroller: Scroller
+    };
+    initData() {
+        return {
+            list: []
+        }
     }
-    container.innerHTML += value.reduce((cur, next) =>
-        cur + `<li><div>Repo: ${next.repository_url}</div>`
-            + `<div>Title: ${next.title}</div>`
-            + `<div>Time: ${next.created_at}</div>`, '');
-});
+    async getNextPage() {
+        const {value, done} = await iterator.next();
+        if (done) {
+            return;
+        }
+        const list = this.data.get('list');
+        this.data.splice('list', [list.length, 0, ...value]);
+    }
+}
+
+const app = new App();
+
+app.attach(container);
 
 /**
  * 请求数据，返回 Promise

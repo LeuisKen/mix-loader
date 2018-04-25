@@ -2,6 +2,7 @@
     "presets": ["stage-3"],
     "plugins": [
         "transform-es2015-modules-commonjs",
+        "transform-class-properties",
         "transform-runtime"
     ]
 }
