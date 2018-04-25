@@ -57,14 +57,6 @@ class App extends Component {
             pool: iterator
         }
     }
-    async getNextPage() {
-        const {value, done} = await iterator.next();
-        if (done) {
-            return;
-        }
-        const list = this.data.get('list');
-        this.data.splice('list', [list.length, 0, ...value]);
-    }
 }
 
 const app = new App();
