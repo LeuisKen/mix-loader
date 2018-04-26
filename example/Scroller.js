@@ -8,26 +8,26 @@ export default class Scroller extends Component {
     static template = `
         <div class="scroller" on-scroll="handleListLoad">
             <ul>
-                <slot var-list="list"></slot>
+                <slot></slot>
             </ul>
             <div s-if="done">以上是全部内容哦~</div>
-            <div s-elif="loading">正在加载...</div>
+            <div s-else>正在加载...</div>
         <div>
     `;
     initData() {
         return {
-            loading: true,
+            loading: false,
             done: false
         }
-    }
-    attached() {
-        this.fire('load');
     }
     handleListLoad() {
         const clientHeight = this.el.querySelector('ul').clientHeight;
 
         if (this.el.scrollTop + this.el.clientHeight > clientHeight) {
-            this.fire('load');
+            const loading = this.data.get('loading');
+            if (!loading) {
+                this.fire('load');
+            }
         }
     }
 }

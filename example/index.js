@@ -4,7 +4,7 @@
  */
 
 import {Component} from 'san';
-import Scroller from './Scroller';
+import ScrollWrapper from './ScrollWrapper';
 import mixLoader from '../src';
 import {PAGE_SIZE, REPO_LIST} from '../common/config';
 import {sorter} from '../common/utils';
@@ -30,18 +30,15 @@ async function* getRepoIssue(location) {
 }
 
 // 合并两个迭代器
-const iterator = mixLoader(REPO_LIST.map(location =>
-    getRepoIssue(location)), sorter, PAGE_SIZE);
+const iterator = getRepoIssue(REPO_LIST[0]);
 
 const container = document.getElementById('container');
+const Scroller = ScrollWrapper(iterator);
 
 class App extends Component {
     static template = `
         <div>
-            <scroller
-                list="{=list=}"
-                on-load="getNextPage"
-                >
+            <scroller>
                 <li s-for="item in list">
                     <div>Repo: {{item.repository_url}}</div>
                     <div>Title: {{item.title}}</div>
@@ -53,19 +50,6 @@ class App extends Component {
     static components = {
         scroller: Scroller
     };
-    initData() {
-        return {
-            list: []
-        }
-    }
-    async getNextPage() {
-        const {value, done} = await iterator.next();
-        if (done) {
-            return;
-        }
-        const list = this.data.get('list');
-        this.data.splice('list', [list.length, 0, ...value]);
-    }
 }
 
 const app = new App();
