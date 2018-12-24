@@ -1,7 +1,10 @@
 {
-    "presets": ["stage-3"],
+    "presets": [],
     "plugins": [
-        "transform-es2015-modules-commonjs",
-        "transform-runtime"
+        "@babel/plugin-transform-modules-commonjs",
+        "@babel/plugin-transform-runtime",
+        "@babel/plugin-syntax-dynamic-import",
+        "@babel/plugin-syntax-import-meta",
+        "@babel/plugin-proposal-class-properties"
     ]
 }
